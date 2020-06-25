@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "buqwj8HxGt0biucvn1DQNrjTGw+Y4oF3et+mZ+05BJHge6WHkZDh0ZFvKh90QtgBwfcHQ8OXE3X7Yy0ypy2ySQ==",
+  "dgSpecHash": "f09k8wCxpzGJDPQDV5mu9pyiuq4rrUxTOgj2thBaOqmebwHSrMZfu6ItvegKRVgqAkeFanDy7TQvrYa0FXfipw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Filipe Braga\\source\\repos\\creditcard-api\\creditcard-api\\creditcard-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Filipe Braga\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\Filipe Braga\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Filipe Braga\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Filipe Braga\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Filipe Braga\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
