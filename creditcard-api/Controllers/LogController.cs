@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using creditcard_api.Data;
 using creditcard_api.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace creditcard_api.Controllers
 {
@@ -14,31 +16,36 @@ namespace creditcard_api.Controllers
     {
         [HttpGet]
         [Route("obter")]
-        public async Task<ActionResult<List<TransactionModel>>> Get()
+        public async Task<ActionResult<List<TransactionViewModel>>> Get([FromServices]DataContext context)
         {
-            List<TransactionModel> models = new List<TransactionModel>();
+            var transactions = await context.Transactions.Include(x => x.Category).AsNoTracking().ToListAsync();
 
-            TransactionModel model = new TransactionModel();
-            model.Name = "Amazon Prime";
-            model.Value = "R$ 9,99";
-            model.Category = "Eletrônicos";
-            model.Parcels = 1;
-            model.TotalValue = "R$ 20,99";
-            model.DataOperacao = "20/11/2013 às 14:23";
+            TransactionViewModel transactionsVModel = new TransactionViewModel();
+         
 
+            return Ok(transactions);
+        }
 
-            TransactionModel modeld = new TransactionModel();
-            modeld.Name = "Pagseguro Fran*";
-            modeld.Value = "R$ 22,99";
-            modeld.Category = "Educação";
-            modeld.Parcels = 5;
-            modeld.TotalValue = "R$ 114,95";
-            modeld.DataOperacao = "23/06/2013 às 20:23";
+        [HttpPost]
+        [Route("criar")]
+        public async Task<ActionResult<Transaction>> Create([FromBody]Transaction transaction, [FromServices]DataContext context)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
 
-            models.Add(model);
-            models.Add(modeld);
+            if (transaction.Parcels > 1) {
+                transaction.TotalValue = transaction.Value;
+                transaction.Value = transaction.TotalValue / transaction.Parcels;
+                transaction.DataOperacao = DateTime.UtcNow;
+            } else {
+                transaction.TotalValue = transaction.Value;
+                transaction.DataOperacao = DateTime.UtcNow;
+            }
 
-            return models;
+            context.Transactions.Add(transaction);
+            await context.SaveChangesAsync();
+
+            return Ok(transaction);
         }
     }
 }
