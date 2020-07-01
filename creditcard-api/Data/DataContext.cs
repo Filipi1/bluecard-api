@@ -9,5 +9,7 @@ namespace creditcard_api.Data
 
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<User> User { get; set; }
+
     }
 }
