@@ -31,6 +31,8 @@ namespace creditcard_api.Controllers
 
             var token = TokenService.GenerateToken(user);
 
+            user.Password = null;
+
             return new {
                 user = user,
                 token = token

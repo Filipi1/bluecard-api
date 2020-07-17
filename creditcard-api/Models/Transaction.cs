@@ -21,5 +21,8 @@ namespace creditcard_api.Models
         public int Parcels { get; set; }
         public float TotalValue { get; set; }
         public DateTime DataOperacao { get; set; }
+        [Required(ErrorMessage = "O Campo {0} é obrigatório")]
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

@@ -58,8 +58,6 @@ C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netco
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\obj\Debug\netcoreapp3.1\creditcard-api.csproj.CopyComplete
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\obj\Debug\netcoreapp3.1\creditcard-api.csproj.CoreCompileInputs.cache
-C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\obj\Debug\netcoreapp3.1\creditcard-api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
@@ -68,3 +66,10 @@ C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netco
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\obj\Debug\netcoreapp3.1\creditcard-api.csproj.CoreCompileInputs.cache
+C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\obj\Debug\netcoreapp3.1\creditcard-api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Filipe Braga\source\repos\creditcard-api\creditcard-api\obj\Debug\netcoreapp3.1\creditcard-api.MvcApplicationPartsAssemblyInfo.cache
