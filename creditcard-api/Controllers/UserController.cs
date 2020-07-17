@@ -23,13 +23,14 @@ namespace creditcard_api.Controllers
                 return BadRequest(ModelState);
 
             try {
+                model.Role = "User";
                 dataContext.User.Add(model);
                 await dataContext.SaveChangesAsync();
                 return model;
             }
             catch (Exception)
             {
-                return BadRequest(new { message = "Não foi possível criar o usuário" });
+                return BadRequest(new { message = "Não foi possível cadastrar o usuário" });
             }
         }
     }

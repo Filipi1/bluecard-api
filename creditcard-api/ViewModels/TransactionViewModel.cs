@@ -15,6 +15,6 @@ namespace creditcard_api.Models
         public Category Category { get; set; }
         public int Parcels { get; set; }
         public String TotalValue { get; set; }
-        public String DataOperacao { get; set; }
+        public String OperationDate { get; set; }
     }
 }
