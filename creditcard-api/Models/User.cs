@@ -31,7 +31,12 @@ namespace creditcard_api.Models
 
         public bool OpenInvoice { get; set; }
 
+        public double CreditLimit { get; set; }
+
+        public int MaxCreditLimit { get; set; }
+
         public string Role { get; set; }
+
         public string ImageProfile { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using creditcard_api.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace creditcard_api.Models
                 .ForMember(a => a.TotalValue, opt => opt.MapFrom(b => b.TotalValue.ToString("C")))
                 .ForMember(a => a.Value, opt => opt.MapFrom(b => ToCurrency(b.Value)))
                 .ForMember(a => a.OperationDate, opt => opt.MapFrom(b => $"{b.OperationDate.ToShortDateString()} às {b.OperationDate.ToShortTimeString()}"));
+            CreateMap<User, UserViewModel>();
+            CreateMap<UserViewModel, User>();
         }
     }
 }

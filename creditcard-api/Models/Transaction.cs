@@ -18,10 +18,12 @@ namespace creditcard_api.Models
         public Category Category { get; set; }
         public int CategoryId { get; set; }
         public int Parcels { get; set; }
+        public int ParcelsPaid { get; set; }
         public float TotalValue { get; set; }
         public DateTime OperationDate { get; set; }
         [Required(ErrorMessage = "O Campo {0} é obrigatório")]
         public int? UserId { get; set; }
         public User User { get; set; }
+        public TransactionStatus Status { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace creditcard_api.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Auth([FromServices] DataContext dataContext, [FromBody] Auth model)
         {
-            var user = await dataContext.User
+            var user = await dataContext.Users
                 .AsNoTracking()
                 .Where(x => x.Username == model.Username && x.Password == model.Password)
                 .FirstOrDefaultAsync();
@@ -35,7 +35,7 @@ namespace creditcard_api.Controllers
 
             return new {
                 user = user,
-                token = token
+                auth = token
             };
         }
     }

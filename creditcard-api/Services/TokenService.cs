@@ -9,10 +9,11 @@ namespace creditcard_api.Services
 {
     public static class TokenService
     {
-        public static string GenerateToken(User user)
+        public static dynamic GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
@@ -28,7 +29,9 @@ namespace creditcard_api.Services
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            var stoken = tokenHandler.WriteToken(token);
+            var response = new { token = stoken, expires = tokenDescriptor.Expires?.ToString("dd/MM/yyyy HH:mm") };
+            return response;
         }
     }
 }

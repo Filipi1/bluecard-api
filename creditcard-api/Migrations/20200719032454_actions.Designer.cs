@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using creditcard_api.Data;
 
 namespace creditcard_api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200719032454_actions")]
+    partial class actions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,9 +101,6 @@ namespace creditcard_api.Migrations
                     b.Property<double>("Balance")
                         .HasColumnType("float");
 
-                    b.Property<double>("CreditLimit")
-                        .HasColumnType("float");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -111,9 +110,6 @@ namespace creditcard_api.Migrations
 
                     b.Property<double>("Invoice")
                         .HasColumnType("float");
-
-                    b.Property<int>("MaxCreditLimit")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
