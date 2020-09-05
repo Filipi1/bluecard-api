@@ -28,7 +28,6 @@ namespace creditcard_api.Controllers
         }
 
         [HttpPost]
-        [Route("")]
         [AllowAnonymous]
         public async Task<ActionResult<User>> CreateUser([FromBody] User model)
         {
@@ -39,7 +38,7 @@ namespace creditcard_api.Controllers
                 model.Role = "User";
                 _context.Users.Add(model);
                 await _context.SaveChangesAsync();
-                return model;
+                return CreatedAtAction(nameof(CreateUser), model);
             }
             catch (Exception)
             {
@@ -47,8 +46,7 @@ namespace creditcard_api.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("{uid}")]
+        [HttpGet("{uid}")]
         [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<User>> GetUser(int uid)
         {
@@ -60,18 +58,19 @@ namespace creditcard_api.Controllers
             return Ok(user);
         }
 
-        [HttpPut]
-        [Route("{uid}")]
+        [HttpPut("{uid}")]
         [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<UserViewModel>> UpdateUser(int uid, User model)
         {
             var user = await _context.Users.Where<User>(u => u.Id == uid).FirstOrDefaultAsync();
+
             if (user == null)
                 return NotFound(new { message = "Usuário não encontrado" });
             else
                 _context.Entry(user).State = EntityState.Detached;
 
             _context.Entry<User>(model).State = EntityState.Modified;
+
             await _context.SaveChangesAsync();
 
             return Ok(model);

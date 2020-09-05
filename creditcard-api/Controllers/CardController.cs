@@ -25,9 +25,8 @@ namespace creditcard_api.Controllers
             _context = context;
         }
 
-        [HttpPut]
-        [Route("{id}")]
-        public async Task<ActionResult> Get(int id)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateCardStatus(int id)
         {
             switch(id)
             {
@@ -37,9 +36,8 @@ namespace creditcard_api.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("acoes")]
-        public async Task<ActionResult> ObterAcoes()
+        [HttpGet("actions")]
+        public async Task<ActionResult> GetCardActions()
         {
             var listActions = await _context.Actions.ToListAsync();
             return Ok(listActions);

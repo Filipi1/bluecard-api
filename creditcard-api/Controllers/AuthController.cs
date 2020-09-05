@@ -16,14 +16,20 @@ namespace creditcard_api.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly DataContext _context;
+
+        public AuthController(DataContext context) {
+            _context = context;
+        }
+
         [HttpPost]
         [Route("")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Auth([FromServices] DataContext dataContext, [FromBody] Auth model)
+        public async Task<ActionResult<dynamic>> Auth([FromBody] Auth model)
         {
-            var user = await dataContext.Users
+            var user = await _context.Users
                 .AsNoTracking()
-                .Where(x => x.Username == model.Username && x.Password == model.Password)
+                .Where(x => x.CPF == model.CPF && x.Password == model.Password)
                 .FirstOrDefaultAsync();
 
             if (user == null)

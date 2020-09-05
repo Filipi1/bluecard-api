@@ -28,22 +28,23 @@ namespace creditcard_api.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
-        [Authorize]
-        public async Task<ActionResult<List<TransactionViewModel>>> Get(int id)
+        [Route("{cpf}")]
+        [AllowAnonymous]
+        //[Authorize]
+        public async Task<ActionResult<List<TransactionViewModel>>> Get(string cpf)
         {
-            var user = await _context.Users.Where(u => u.Id == id).FirstOrDefaultAsync();
+            var user = await _context.Users.Where(u => u.CPF == cpf).FirstOrDefaultAsync();
             if (user == null)
                 return NotFound(new { message = "Usuário não encontrado" });
 
-            if (Request.HttpContext.User.Identity.IsAuthenticated)
-            {
+            //if (Request.HttpContext.User.Identity.IsAuthenticated)
+            // {
                 var transactions = await _context.Transactions.Include(x => x.Category).AsNoTracking()
-               .Where(s => s.UserId == id).ToListAsync();
+               .Where(s => s.UserId == user.Id).ToListAsync();
                 List<TransactionViewModel> content = _mapper.Map<List<TransactionViewModel>>(transactions);
 
                 return Ok(content.Reverse<TransactionViewModel>());
-            }
+            //}
 
             return BadRequest(new { message = "Usuário não autenticado" });
         }

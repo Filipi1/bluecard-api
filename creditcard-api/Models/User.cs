@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.SignalR;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,6 +25,9 @@ namespace creditcard_api.Models
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        public string CPF { get; set; }
 
         public double Balance { get; set; }
 
